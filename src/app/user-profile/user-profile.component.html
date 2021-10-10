@@ -1,0 +1,51 @@
+<table *ngIf="userDetails" class="table-fill">
+    <thead>
+        <tr>
+            <th colspan="2" class="text-center">User Profile</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>First Name</td>
+            <td>{{userDetails.fullName.split(' ')[0]}}</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>{{userDetails.fullName.split(' ')[1]}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{userDetails.email}}</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="text-center">
+                <input type="button" (click)="onLogout()" value="Logout" />
+            </td>
+        </tr>
+    </tbody>
+  </table>
+  <div class="content" role="main">
+
+  <h2>Next Steps</h2>
+  <p>Choose Your Source and Destination</p>
+  <p>We have Buses Available at 3pm and 6pm</p>
+
+  <div class="card-container">
+    <!-- #ticketform="ngForm" (ngSubmit)="onSubmit(ticketform)" -->
+    <input type="text" #source="ngModel" [(ngModel)]="model.source" class="card" target="_blank" rel="noopener" placeholder="Source" style="font-weight: 600;">   
+
+    <input type="text" #dest="ngModel" [(ngModel)]="model.dest" class="card" target="_blank" rel="noopener" placeholder="Destination" style="font-weight: 600;">
+      
+    <input type="date" #date="ngModel" [(ngModel)]="model.date" class="card" target="_blank" rel="noopener"  placeholder="Date" style="font-weight: 600;"><br>
+
+    <input type="number" #time="ngModel" [(ngModel)]="model.time" class="card" target="_blank" rel="noopener"  placeholder="Time" style="font-weight: 600;">
+
+    <input type="number" #seats="ngModel" [(ngModel)]="model.seats" class="card" target="_blank" rel="noopener"  placeholder="Number of Seats" style="font-weight: 600;">
+
+    
+      <!-- <input class="card" type="submit" value="Search" > -->
+      <button class="card" type="submit" (click)="ticketpage()">Search</button>
+    
+    </div>
+  
+  

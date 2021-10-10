@@ -22,23 +22,27 @@
   }
 
   button.active{
-      color: rebeccapurple;
+      color: red;
   }
 
   .spacer {
-    margin-left: 900px;
+    margin-left: 1000px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     padding: 15px 32px;
+    display: inline-block;
     font-size: 16px;
     font-weight: bold;
     color: #1976d2;
-    border-radius: 10px;
+    border-radius: 30px;
   }
   .spacer1 {
     margin-left: 30px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     padding: 15px 32px;
+    display: inline-block;
     font-size: 16px;
     color: #1976d2;
-    border-radius: 10px;
+    border-radius: 30px;
     font-weight: bold;
 
   }
@@ -314,6 +318,3 @@
   }
 
 
-
-
-  
