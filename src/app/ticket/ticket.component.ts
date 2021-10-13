@@ -10,19 +10,14 @@ import { Router } from '@angular/router';
 })
 export class TicketComponent implements OnInit {
   public ticketDetails:any;
-
+  
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.userService.getticket().subscribe(
-      res => {
-        this.ticketDetails = res['bus'];
-      },
-      err => { 
-        console.log(err);
-        
-      }
-    );
-  }
+}
+
+d:any=this.userService.f;
+
+
 
 }

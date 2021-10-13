@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { concatAll } from 'rxjs/operators';
 
 
 @Component({
@@ -11,18 +12,18 @@ import { NgForm } from '@angular/forms';
 })
 export class UserProfileComponent implements OnInit {
   public userDetails:any;
+  a : any;
+  b: any;
+  c: any;
+  d: any;
+  totalfare: any;
 
   
 
   constructor(private userService: UserService, private router: Router, ) { }
 
-  model = {
-    source:'',
-    dest:'',
-    date:'',
-    time:'',
-    seats:'',
-  };
+  
+
 
   serverErrorMessages: any;
 
@@ -38,14 +39,22 @@ export class UserProfileComponent implements OnInit {
     );
   }
 
-  ticketpage(){
-    this.router.navigateByUrl('/ticket')
-  }
+  // ticketpage(){
+  //   this.router.navigateByUrl('/ticket')
+  // }
 
-  onSubmit(form : NgForm){
-    this.userService.ticketform(form.value).subscribe(
-      res => {
-        this.router.navigateByUrl('/ticket');
+  onSubmit(form : any){
+    console.log(form.value)
+    this.userService.getticket(form.value).subscribe(
+      res => {  
+        this.userService.f=res;
+        this.a=res;
+        this.b = this.a[0].fare
+        this.c = form.value.seats
+        this.a[0].fare = (this.b*this.c);
+        this.a[0]._id = form.value.seats;
+        console.log(this.a[0].fare)
+        console.log(this.a);   
       },
       err => {
         this.serverErrorMessages = err.error.message;

@@ -39,6 +39,7 @@ const userRoute:Routes=[
     BusComponent,
     FlightComponent,
     TrainComponent,
+    // NgForm
   ],
   imports: [
     BrowserModule,

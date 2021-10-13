@@ -28,24 +28,48 @@
 
   <h2>Next Steps</h2>
   <p>Choose Your Source and Destination</p>
-  <p>We have Buses Available at 3pm and 6pm</p>
+  <p>We have Buses Available at 3pm and 6pm for 1st of Oct.</p>
+  <p style="color: red">Available sources are Pune, Karad, Kolhapur</p>
+  <p style="color: red">Available destinations are Karad, Mumbai, Pune</p>
 
-  <div class="card-container">
+
+  <form class="card-container" #ticketform="ngForm" (ngSubmit)="onSubmit(ticketform)">
     <!-- #ticketform="ngForm" (ngSubmit)="onSubmit(ticketform)" -->
-    <input type="text" #source="ngModel" [(ngModel)]="model.source" class="card" target="_blank" rel="noopener" placeholder="Source" style="font-weight: 600;">   
+    <input type="text"  class="card" target="_blank" rel="noopener" placeholder="Source" name="source" style="font-weight: 600;" ngModel>   
 
-    <input type="text" #dest="ngModel" [(ngModel)]="model.dest" class="card" target="_blank" rel="noopener" placeholder="Destination" style="font-weight: 600;">
+    <input type="text"  class="card" target="_blank" rel="noopener" placeholder="Destination"  name="destination" style="font-weight: 600;" ngModel>
       
-    <input type="date" #date="ngModel" [(ngModel)]="model.date" class="card" target="_blank" rel="noopener"  placeholder="Date" style="font-weight: 600;"><br>
+    <input type="date"  class="card" target="_blank" rel="noopener"  placeholder="Date" name="date" style="font-weight: 600;"><br>
 
-    <input type="number" #time="ngModel" [(ngModel)]="model.time" class="card" target="_blank" rel="noopener"  placeholder="Time" style="font-weight: 600;">
+    <input type="number"  class="card" target="_blank" rel="noopener"  placeholder="Time"  name="time" style="font-weight: 600;" ngModel>
 
-    <input type="number" #seats="ngModel" [(ngModel)]="model.seats" class="card" target="_blank" rel="noopener"  placeholder="Number of Seats" style="font-weight: 600;">
-
-    
+    <input type="number"  class="card" target="_blank" rel="noopener"  placeholder="Number of Seats" name="seats" style="font-weight: 600;" ngModel >
+   
       <!-- <input class="card" type="submit" value="Search" > -->
-      <button class="card" type="submit" (click)="ticketpage()">Search</button>
+      <button class="card" type="submit">Search</button>
     
+  </form>
+
+  <div >
+    <div class="firstdiv">
+        <h1> Your Ticket </h1>
+        <h3>Bus:</h3> <h3>{{a[0].title}}</h3>
+        <!-- <h3></h3> -->
+        <h3>Source:</h3> <h3>{{a[0].source}}</h3>
+        <h3>Destination:</h3> <h3>{{a[0].dest}}</h3>
+        <h3>Pickup: Kurla(W),Opp. Naaz Hotel</h3>
+        <h3>Seats: </h3> <h3>{{a[0]._id}}</h3>
+        <h3>Timining:</h3> <h3>{{a[0].tim}}pm</h3>
+        <h3>Date: 2021-10-01T00:00:00.000+00:00</h3>
+        <h1>Total Fare:</h1> <h3>{{a[0].fare}}</h3>
+        <h1 style="color: red;">Notice!!</h1>
+        <h1 style="color: red">Please Bring a copy of this Ticket while boarding</h1>
+        
+
     </div>
+
+</div>
+
+  
   
   

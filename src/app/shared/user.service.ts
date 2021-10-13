@@ -6,6 +6,7 @@ import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
 import { Bus } from './bus.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,14 +29,17 @@ export class UserService {
 
   };
 
- 
-
-
+  f: any;
+  
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
   
 
 
   constructor(private http: HttpClient,private authService: SocialAuthService) { }
+
+hi(){
+  console.log(this.f)
+}
 
   postUser(user: User){
     return this.http.post(environment.apiBaseUrl+'/register' ,user,this.noAuthHeader)
@@ -47,10 +51,12 @@ export class UserService {
 
   ticketform(bus: Bus) {
     return this.http.post(environment.apiBaseUrl + '/postbus', bus);
+
   }
 
-  getticket(){
-    return this.http.get(environment.apiBaseUrl + '/getbus');
+  getticket(form: any):Observable<any>{
+    console.log(form);
+    return this.http.post(environment.apiBaseUrl + '/getbus', form);
   }
 
 
